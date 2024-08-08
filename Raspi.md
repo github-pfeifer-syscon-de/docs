@@ -637,19 +637,19 @@ Zstd is the most flexible packer, it can be nicely tuned by the -n option.
 
 The needed time grows non linear (rater exponential even if there seem to be some limits for xz and bzip2), where the gain on size is linear in the best case.
 
-![pack time arm](/images/packTimeArm.png)
+![pack time arm](/images/PackTimeArm.png)
 
 The x86 (Pentium(c)) architecture has a real advantage on packing, an older Athlon(c) is closer to Arm. I think this is because packing is done mostly from caches.
 
-![pack time x86](/images/packTimeX86.png)
+![pack time x86](/images/PackTimeX86.png)
 
 The gain on size is nearly linear (just to put it positivly).
 
-![pack ratio arm](/images/packRatioArm.png)
+![pack ratio arm](/images/PackRatioArm.png)
 
 As the packed binary was used of the architecture it was tested for, and the packing ratio on x86 is a little less effective. The source of the x86 plattform is 11% larger than that of the arm due to the 64/32bit difference. The effect of the entropy of the cisc (x86) vs that of the risc (arm) seems neglectable.
 
-![pack ratio x86](/images/packRatioX86.png)
+![pack ratio x86](/images/PackRatioX86.png)
 
 
 ## Vulkan

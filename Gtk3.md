@@ -10,7 +10,7 @@ Most projects listed here have been migrated to github  see [Github-Pfeifer-Sysc
 
 ## fractale generator
 
-![Julia fractale](/images/julia.png)
+![Julia fractale](/images/Julia.png)
 
 Example of a mandelbrot and julia generator:
 
@@ -97,7 +97,7 @@ http://users.wfu.edu/cottrell/cross-gtk/
 
 ## GLglobe
 
-![Glglobe](/images/glglobe.png)
+![Glglobe](/images/Glglobe.png)
 
 Example of a fancy desktop clock with world time, overlay satellite images, geo.json files.
 
@@ -126,7 +126,7 @@ Or this port with limited functions ![OSXglobe](/images/OSXglobe.zip) as XCode-p
 
 ## Monglmm
 
-![Monglmm](/images/monglmm.png)
+![Monglmm](/images/Monglmm.png)
 
 Some kind of different system monitor (load, memory, network, disk, clock) for linux, delegates most display work to graphis-card.
 
@@ -165,11 +165,11 @@ usermod your_users -a -G usbdev
 
 If you own a Raspi4 and intrested in Hardware development you sometimes need some insight what is happening in electrical terms with some speed. So here comes a tool that helps you discover these mysteries:
 
-![Logic](/images/logic2.png)
+![Logic](/images/Logic2.png)
 
 Example connect a switch to Gpio 4 (Raspi 40 pin header pin 7 [Gpio pinout](https://pinout.xyz/#)) and Ground (pin 9). With the program you now choose the Trigger 4 and "Single" (capture) and activate the switch. In a moment you see that a switch is not just on or off but usually bounces back and forth some times.
 
-![Logic 2](/images/logic.png)
+![Logic 2](/images/Logic.png)
 
 "Logic 2" is a example of a Spi communication.
 
@@ -210,7 +210,7 @@ sudo make install
 
 ## Calculator
 
-![Calc](/images/calc.png)
+![Calc](/images/Calc.png)
 
 A calculator that allows you to write your calculation 3 + 4 * 5 and press (Cntl) (Enter) to see the result. Also supports variables e.g. a = 3 + 4 * 5. 
 

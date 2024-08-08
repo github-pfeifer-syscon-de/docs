@@ -21,7 +21,7 @@ Mond am 24.10.21 20Uhr (R.Pfeifer)
 
 ## Orion
 
-![orion](/images/orion.png)
+![orion](/images/Orion.png)
 
 Orion Gürtelsterne, Nebel und Rigel (c) R.Pfeifer 19.9.20
 
@@ -32,7 +32,7 @@ Nach einer kleinen Ermutigung hier ein Versuch für einen planetaren Nebel. Dies
 Noch ist die Gelegenheit einen Blick auf den Schweif von Neowise zu erhaschen. Hier mein Ergebnis vom 21.7.20 gegen 23:50 Richtung Norden die Helligkeitsstufe 4m wird nur mit möglichst wenig Fremdlicht erkennbar. Aus 30 Aufnahmen f70mm F4 à 10s bei ISO1250 mit Siril gestapelt, mit Gimp konvertiert. Selbst einen Hauch der Ionenspur ist zu erkennen. (Die Belichtungszeit hab ich etwas hoch gewählt, da die Sterne nicht punktförmig sind, andererseits bei einer kürzeren Zeit wäre eine höhere Kontrastanhebung nötig was mehr Rauschen sichtbar machen würde. Somit gilt es immer abzuwägen zwischen verschiedenen Nachteilen).
 
 
-![neowise](/images/neowise.jpg)
+![neowise](/images/Neowise.jpg)
 
 Neowise 2020 (rpf 21.7.2020)
 
@@ -43,13 +43,13 @@ Bei der Bearbeitung hab ich versucht Verfälschungen auszuschließen (Tonwertbeg
 Nach der vorigen Methode mit Siril bearbeitet hier eine Aufnahme. Aus 25 Aufnahmen á 8s mit Blende 4 bei 6400Iso und 70mm.
 
 
-![andromeda](/images/andromeda.jpg)
+![andromeda](/images/Andromeda.jpg)
 
 Andromeda
 
 Leider sind einige Sterne doch etwas länglich. Somit tendiert die Regel eher zu t=500/f für Details. Die Entscheidung ob man auf eine Farbversion setzt oder bei der S/W-Bearbeitung bleibt ist durchaus eine Herausforderung, da Farbe immer mit mehr Rauschen behaftet ist. Ohne Zweifel sollte aber beim „Stacking“, „Rejection“ gewählt werden, nur als Beispiel hier eine wenig bearbeitet Einzelaufnahme:
 
-![andromeda_min](/images/andromeda_min.jpg)
+![andromeda_min](/images/Andromeda_min.jpg)
 
 
 ## Star shooting
@@ -79,7 +79,7 @@ Das führt zu einem ganzen Satz an Aufnahmen die nun bearbeiten werden wollen. D
 
 Nun geht es darum die jeweiligen Aufnahmen in der Software ihren Kategorien zuzuordnen DSS sollte ohne Probleme zu verwenden sein (Bilder einlesen und die jeweilige Kategorie im Kontextmenü auswählen). Siril ist da etwas anspruchsvoller, (zunächst Konvertierung nach Fits, die Zusatzauaufnahmen Stacken und in die richtige Kategorien unter Preprocessing eintragen, verzichtet hab ich auf die Farbauswertung da diese beim Sternenhimmel eher für Störungen sorgt). Beim Registrieren geht es die Position der Aufnahmen anzugleichen (gedacht für Ausgleich von Ungenauigkeiten bei der Nachführung, funktioniert aber auch bei der natürlichen Sternenbewegung). Beim Stacken geht es darum temporäre Fehler der Aufnahmen (Rauschen) durch die Kombination von Aufnahmen zu reduzieren. Das Ergebnis der Astro-Software wurde hier noch in der Bildbearbeitung mit einer Anpassung der Gradationskurve (im dunken Bereich Störungen beseitigt und die begrenzte Helligkeit der Aufnahme angehoben) für die hier gezeigt Darstellung aufbereitet.
 
-![casiopeia](/images/casiopeia.png)
+![casiopeia](/images/Casiopeia.png)
 
 Cassiopeia f60mmf2.8 6*15s (R.Pfeifer)
 
