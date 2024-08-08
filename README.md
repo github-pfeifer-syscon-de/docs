@@ -1,3 +1,3 @@
 Collecting former wiki documents.
 
-![Test image](/assets/images/Orion.png)
+![Test image](/images/Orion.png)
