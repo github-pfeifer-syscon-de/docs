@@ -15,7 +15,7 @@ Da der Mond gestern malerisch um 20Uhr über dem Horizont erschien hier ein Vers
 
 Überlegung (nur wenn es von Intresse ist): Jetzt fragt sich der eine oder andere wozu der Aufwand? Eigentlich ist der Mond doch hell genug für eine Aufnahme. Das ist sicher richtig, allerdings, spielt auch hier der allgegenwärtige Feind für die Astrofotographie eine Rolle: Die Erdatmosphäre. In diesem Fall war der Rand für die Einzelaufnahemen deutlich „ausgefressen“ (was sich mit der Aufnahme dicht über dem Horizont, und kurz nach Sonnenuntergang ergibt.). Somit sind Mehrfachaufnahmen eine Möglichkeit ungünstige Situationen (in Grenzen) auszugleichen. 
 
-![moon](/images/moon.png)
+![moon](/images/Moon.png)
 
 Mond am 24.10.21 20Uhr (R.Pfeifer)
 
