@@ -44,14 +44,14 @@
 
 Thanks to Astrumqt there is lighweight WaypointsNative Addon, i tried to improved it a bit:
 
-[Media:WaypointNativ.zip](Media:WaypointNativ.zip.md)
+[Media:WaypointNativ.zip](/images/WaypointNativ.zip)
 
 ### Quests
 
 This is a bit crude addon as help to play loremaster (i coud not find any simple addon to do this), mainly it shows a notficion in green if you accept a quest the is for loremaster (at the moment only some Outland/Nortrend/Pandaria regions are included you might need to get the quests number from e.g. https://www.wowhead.com/quests/outland/blades-edge-mountains/side:1?filter=44;1;0 "the ids" are needed, extract these with your prefered language).
 To show what quests that you currently track/watch are on the storyline use:
 ```
-/quests 
+/quests
 ```
 to get some indication of your progess and still open quests of the storyline use:
 ```
@@ -60,7 +60,7 @@ to get some indication of your progess and still open quests of the storyline us
 
 [Media:Quests.zip](Media:Quests.zip.md)
 
-This stands and falls with the provided quest infos (my hopes that the wow-api woud give these infos where in vain (of course someone else woud have constructed an Addon in this case)). 
+This stands and falls with the provided quest infos (my hopes that the wow-api woud give these infos where in vain (of course someone else woud have constructed an Addon in this case)).
 To obtain the info what quests are required can be a bit frustrating, upto Outland these infos are quite accurate, with Pandaria they get a bit confusing (on Wowhead look for the achievement and a required criterias, and look for a second page in some cases). But still there is some creativity required, so dont use these infos as complete list, but as a guide to get to the next quest hub (if you pointed to a quest-giver the also offered quests are most likely also belong to the storyline), (breadcrumb quests are missing mostly). And identify a quest-giver with the infos the Addon provides, works most certainly.
 You may decide:
 
@@ -80,15 +80,15 @@ This is definitly not "completed" but i hope it helps or gives you an idea for y
 
 ### GamePad
 
-Since Bfa there is a nativ option to use a gamepad in game. 
+Since Bfa there is a nativ option to use a gamepad in game.
 
-helpful are the console variables from [https://wowpedia.fandom.com/wiki/Console_variables/Complete_list https://wowpedia.fandom.com/wiki/Console_variables/Complete_list](https://wowpedia.fandom.com/wiki/Console_variables/Complete_list https://wowpedia.fandom.com/wiki/Console_variables/Complete_list.md) look for GamePad  use with 
+helpful are the console variables from [https://wowpedia.fandom.com/wiki/Console_variables/Complete_list https://wowpedia.fandom.com/wiki/Console_variables/Complete_list](https://wowpedia.fandom.com/wiki/Console_variables/Complete_list https://wowpedia.fandom.com/wiki/Console_variables/Complete_list.md) look for GamePad  use with
 ```
- 
+
 /console NAME VALUE
 ```
 
-It allows for example to active the the more wsad like navigation by setting 
+It allows for example to active the the more wsad like navigation by setting
 
 ```
 /console GamePadTankTurnSpeed 1
@@ -104,19 +104,19 @@ The most obvious customization are the keybindings, if you happy with these no n
 To support a aged PS3 controller use the .inf files provided from [https://vigem.org/projects/DsHidMini/ https://vigem.org/projects/DsHidMini/](https://vigem.org/projects/DsHidMini/ https://vigem.org/projects/DsHidMini/.md) otherwise the device is recognized but in limbo mode (it's shown but it will not allow any input).
 
 The support for controllers is fine if you use a well known controller, if not the tool from [https://www.generalarcade.com/gamepadtool/ https://www.generalarcade.com/gamepadtool/](https://www.generalarcade.com/gamepadtool/ https://www.generalarcade.com/gamepadtool/.md) might be helpful. At least for my aged controller it corrected the navigation direction.
-The created string goes into WTF/gamecontrollerdb.txt, but the model of the controller is somewhat simple. 
+The created string goes into WTF/gamecontrollerdb.txt, but the model of the controller is somewhat simple.
 
 To understand the mapping (especially the more complex json kind) the following Addon might be helpful:
 
 [Media:GamePad.zip](Media:GamePad.zip.md)
 
-To modify it, use the WTF/GamePadMapping_Default.json as template copy it and give it your own name e.g. WTF/GamePadMapping_Modified.json. One important part is to add to the raw mapping containing vendor+product a name so if you active the addon with 
+To modify it, use the WTF/GamePadMapping_Default.json as template copy it and give it your own name e.g. WTF/GamePadMapping_Modified.json. One important part is to add to the raw mapping containing vendor+product a name so if you active the addon with
 
-/gamepad 
+/gamepad
 
-you may see the name you choose above (the name will also be displayed with the connect message within the chat frame). If the json is somewhat wrong it will revert to the default config (use a json validator will be most helpful). With the displayed values it shoud be easier to get around the effective mapping and tailor it to your needs. Especially the modifier key PADxTRIGGER and the axis assigment have (as far as i can see) no other way to be modified. 
+you may see the name you choose above (the name will also be displayed with the connect message within the chat frame). If the json is somewhat wrong it will revert to the default config (use a json validator will be most helpful). With the displayed values it shoud be easier to get around the effective mapping and tailor it to your needs. Especially the modifier key PADxTRIGGER and the axis assigment have (as far as i can see) no other way to be modified.
 
-The Button mapping is straightforward it will just assign the supported names to a raw button number e.g. 
+The Button mapping is straightforward it will just assign the supported names to a raw button number e.g.
 
 ```
     "rawIndex": 3,
@@ -162,15 +162,15 @@ On extra case are "buttons" that have analog values as it seems that was for som
 ## Loremaster
 ### Chromie
 
-At first it looks nice, to take the offer from chromie and explore some old expansion. The Levelups occure as fast as if you are questing newer content. 
+At first it looks nice, to take the offer from chromie and explore some old expansion. The Levelups occure as fast as if you are questing newer content.
 
-With the scale content to player you can go anywhere, without asking chromie. The thing that changes is what dungeons you are able to join with LFG. But most of the time the message apears "Do you want the expand the search to other expansions?". 
+With the scale content to player you can go anywhere, without asking chromie. The thing that changes is what dungeons you are able to join with LFG. But most of the time the message apears "Do you want the expand the search to other expansions?".
 
 But one thing will that isn't that much adapted to the speed of leveling is the gold you earn while questing. You might say i don't want to get rich, but flying isn't cheap, and if you don't have a leveled up char with sacks of gold around it may take some time to get ready for take off. The newer expansions are better in that aspect, and the quest rewards are better also.
 
 #### Starter account
 
-For completing the "Loremaster ..." achievements, they can be done mostly with a free start account (in many areas you get "stuck" e.g. nagrand requires lvl25 for some quests :( but shows you the promissing ! on the map). 
+For completing the "Loremaster ..." achievements, they can be done mostly with a free start account (in many areas you get "stuck" e.g. nagrand requires lvl25 for some quests :( but shows you the promissing ! on the map).
 
 If you think i have done this before (i played these areas in 201x), they all have been scaled to super simple, no scary underground "dungeon" like encounters, and the mobs have just 600~700 health altogether not too dangerous.
 
@@ -218,7 +218,7 @@ Anonying is the gold limit, but as always there is a way to bend the rule:
 
 If you don't know the history of Wow, careful spoiler...
 
-And i must admit i'am just a casual player (if you are not, most of this might not be of interest to you). 
+And i must admit i'am just a casual player (if you are not, most of this might not be of interest to you).
 
 ## The burning crusade
 
@@ -235,7 +235,7 @@ New class Death Knight.
 ## Cataclysm
 
 Mostly the existing area of Klaimdor and the Easter kingdom where modified.
-Return of the evil dragon aspect Deathwing the Destroyer. 
+Return of the evil dragon aspect Deathwing the Destroyer.
 
 New races Worgen and Goblins.
 
@@ -264,7 +264,7 @@ With the intro to teleport Dalaran from Dead wind pass you see the city attacked
 
 If you are not into completing everything, just don't do professions in Legion.
 
-Sometimes i don't really understand the concept. 
+Sometimes i don't really understand the concept.
 
 With legacy Wow you need(ed) to go to a teacher to learn each new spell, this was removed some time ago, so nice.
 
@@ -290,7 +290,7 @@ Night-Elves lost cultures:
 
 ### Stormheim
 
-Resembles some scandinavic traditions but were they all so bloodthirsty? 
+Resembles some scandinavic traditions but were they all so bloodthirsty?
 
 (At least the movie "King Arthur" suggests something similar).
 
@@ -304,13 +304,13 @@ One quest that probably is worth to visit highmountain for, is "Addies ink stain
 
 ### Suramar
 
-Fantastic looking, nice stories... but lengtly (I always feelt a bit arkward about collecting crystals and offering them for a "fix"). 
+Fantastic looking, nice stories... but lengtly (I always feelt a bit arkward about collecting crystals and offering them for a "fix").
 
 Best played at Level 50 when you don't need to worry too much about dying.
 
 ### Broken shore
 
-The storyline isn't much of story, just many going there and here ... 
+The storyline isn't much of story, just many going there and here ...
 
 The following expansions do better than offering quests like kill 50 demons, go there, come back, now kill 100...
 
@@ -326,13 +326,13 @@ Enemies on all sides, one is N'zoth.
 
 A setting that has been inspired by the age of the pirates, and it's a better version of Stranglethorn that also has Trolls,  Pirates and Naga (King Rastakhan, and even some phrases reapear). A few years can do wonders.
 
-Without falling for someone like "Jack Sparrow". While "Flynn Fairwind" still resembles some attributes of a Adventurer. 
+Without falling for someone like "Jack Sparrow". While "Flynn Fairwind" still resembles some attributes of a Adventurer.
 
 But why is the story so much fixed on getting in and out of prisons ?
 
 ### Professions
 
-The idea of recycling is quite nice, but on the other hand if the materials for crafting were also increased, it leaves no advantage at all. 
+The idea of recycling is quite nice, but on the other hand if the materials for crafting were also increased, it leaves no advantage at all.
 
 I just managed to get tailoring at some level where crafting one item for my char did offer some improvements (even with nine Alts and recycling i spend still thousands gold just to get some skill points). Professions are only nice for Alts to get better items from daylie quests and these items are replaced after some hours... (probably the content is meanwhile scaled for a faster success, but professions weren't (i was playing Bfa while Shadowlands was out) )
 
@@ -342,7 +342,7 @@ That might be a historic note: To get the required reputation,  for flying took 
 
 ### Kul Tiras
 
-Represents some aspects of the empires of that age ? 
+Represents some aspects of the empires of that age ?
 
 With a leader that doesn't knows what is really going on.
 
@@ -350,7 +350,7 @@ With a leader that doesn't knows what is really going on.
 
 For me it pictures some aspects the culture of middle and south America at that age.
 
-One major threat to the Zandalar Empire are the blood trolls. 
+One major threat to the Zandalar Empire are the blood trolls.
 
 Their white skin, makes them a historic quote, that is more than just some coincidence.
 
@@ -358,7 +358,7 @@ At first i was thinking "Zandalar forever" did relate to the duration of the Emp
 
 ### Nazathar
 
-The under the sea adventure. 
+The under the sea adventure.
 
 And here she appears again Queen Ashara, this time with more "legs".
 
@@ -368,7 +368,7 @@ But stop, some like "Illidan" or "Bovar Fordragon" get a second life as hero...
 
 ## Shadowlands
 
-A setting that tries to go beyond the visible world, but beside the background story looks amazingly similar to other parts of Wow (but that's ok, as i don't want to download more extra gigabytes, or exchange my hardware for every expansion). 
+A setting that tries to go beyond the visible world, but beside the background story looks amazingly similar to other parts of Wow (but that's ok, as i don't want to download more extra gigabytes, or exchange my hardware for every expansion).
 
 One remarkable quote is "And everyday arriving new brokers".
 
@@ -376,7 +376,7 @@ One remarkable quote is "And everyday arriving new brokers".
 
 At first it feelt a bit anoying to be forced to decide if you want to play the storyline or the threads of fate.
 
-The storyline offers a on rails experience the pros and cons are (about reintroducing some previously ditched flaws see above, this time areas that work fine just for some levels, combined with the requirement to do everything in the given order): 
+The storyline offers a on rails experience the pros and cons are (about reintroducing some previously ditched flaws see above, this time areas that work fine just for some levels, combined with the requirement to do everything in the given order):
 
 + you never have to search what to do next
 
@@ -392,7 +392,7 @@ Threads of fate:
 
 + the xp from quests is higher, than playing the storyline
 
-+ you gain some renown levels beforehand 
++ you gain some renown levels beforehand
 
 + accepting all area aiding quest, will allow you with lvl 60 to advance these without much effort and they still reward you some weapon (e.g. nice if you need two) and a anima container.
 
@@ -410,7 +410,7 @@ One nice aspect about Shadowlands is that professions are not so hard to skill (
 
 The concept of collecting "Soul ash" from Thorgast to craft "epic" items makes professions worth raising.
 
-Also nice, you can select the level, but the curve is rather steep. At least for me and wearing anything below mail armor, and choosing the level closer than 10 points to my item level, didn't work nicely (expect some deaths as some groups of elites may be hard to control). The rare mobs are at least for me out of reach in these scenarios. Selecting some lower level may be easier than have to abandon a run, halfway through (which offers no reward at all). From a selected item level 150 to 160 there are added diffculties, like you have to keep moving or will be struck by something. The difficulty ranges from wearing cloth and need time to cast = worst, to wearing mail or better and you are free to move at any time (usually doing melee damage) = best. 
+Also nice, you can select the level, but the curve is rather steep. At least for me and wearing anything below mail armor, and choosing the level closer than 10 points to my item level, didn't work nicely (expect some deaths as some groups of elites may be hard to control). The rare mobs are at least for me out of reach in these scenarios. Selecting some lower level may be easier than have to abandon a run, halfway through (which offers no reward at all). From a selected item level 150 to 160 there are added diffculties, like you have to keep moving or will be struck by something. The difficulty ranges from wearing cloth and need time to cast = worst, to wearing mail or better and you are free to move at any time (usually doing melee damage) = best.
 
 Lastly the auctions for materials where merged from all realms, this makes materials worth buying, but is bad if you want to sell (keep on eye on how much you spend to craft something the prices for auctions might be lower).
 
@@ -432,7 +432,7 @@ As connection to former expansions Uther/(Arthas) make their appearance.
 
 ### Maldraxxus
 
-Some replacement for "Undercity" without the under. 
+Some replacement for "Undercity" without the under.
 
 Each and everyone is getting on each others throat.
 
@@ -516,13 +516,13 @@ The concept of the collaborative events, happens now in many places, which by it
 
 You can turn in the following items:
 
-Dragon Isles artifact: Draconscale basecamp /way The Waking Shores 47.6 82.7 
+Dragon Isles artifact: Draconscale basecamp /way The Waking Shores 47.6 82.7
 
-Centaur hunting trophy: Maruukai /way Ohn'ahran Plains 64.01 41.04 
+Centaur hunting trophy: Maruukai /way Ohn'ahran Plains 64.01 41.04
 
-Titan Relic: Valdrakken Accord /way Thaldraszus 25.8 40.0 
+Titan Relic: Valdrakken Accord /way Thaldraszus 25.8 40.0
 
-Sacred Tuskarr Totem: Iskaara Tuskarr /way The Azure Span 12.4 49.2 
+Sacred Tuskarr Totem: Iskaara Tuskarr /way The Azure Span 12.4 49.2
 
 Sabelian/Wrathion /way The Waking Shores 25 56.4
 
@@ -564,8 +564,8 @@ Just some overview how to improve your gear at lvl 70.
 
 ### Thaldrasuz
 
-* The time rifts event offers some items (random, same as above?) 
-* and time capsule reward (check buff or item  to get buff) that can be exchanged for the items you want 
+* The time rifts event offers some items (random, same as above?)
+* and time capsule reward (check buff or item  to get buff) that can be exchanged for the items you want
 * also paracausal flakes that are exchangable for equip (useful to get trinket upgrades easy) or cosmetic items
 
 ### Ohnaren pains
@@ -608,7 +608,7 @@ Itinerant Singned Fabric /way Dragonbane Keep 25.1 69.8 Reward 3 tailoring knowl
 
 /way Ohn'ahran Plains 82.4 50.7 5 letherworking knowledge
 
-Farm Rousing Air \way The Azure Span 46.6 59.4 
+Farm Rousing Air \way The Azure Span 46.6 59.4
 
 Drangon shard of knowledge, Khadin /way Ohn'ahran Plains 51.8 33.1
 
@@ -634,7 +634,7 @@ I'am a bit concerned what the next, expansion will bring, here some suggestions/
 
 - cooking specialization like sushi, patisserie, ramen, barbecue
 
-- auction house categories: tuna normal, tuna MSC 
+- auction house categories: tuna normal, tuna MSC
 
 - why there is no vegetarian cooking?
 
@@ -663,7 +663,7 @@ There your find the dragon capital
 
 ## Forbidden reach
 
-The new "Thorgast tower"? 
+The new "Thorgast tower"?
 The keys can easly be purchased (no need to kill elites anymore...).
 
 ## Zaralek cavern
@@ -702,7 +702,7 @@ But at the moment there is no answer to the initially raised questions:
 * will the siblings reunite?
 * will the abyss be defeated?
 * why was the previous world destroyed?
-* and many more... 
+* and many more...
 
 To advance, you depend on wishing, which is more or less a gamble (especially the standard banner gives you no hint what you can expect). For me Wow feels more predictable (even if it requires some subscriptions to keep going...).
 
