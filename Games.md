@@ -44,7 +44,7 @@
 
 Thanks to Astrumqt there is lighweight WaypointsNative Addon, i tried to improved it a bit:
 
-[Media:WaypointNativ.zip](/images/WaypointNativ.zip)
+[WaypointNativ.zip](/images/WaypointNativ.zip)
 
 ### Quests
 
@@ -58,7 +58,7 @@ to get some indication of your progess and still open quests of the storyline us
 /quests open
 ```
 
-[Media:Quests.zip](Media:Quests.zip.md)
+If you think this may be useful aks me...
 
 This stands and falls with the provided quest infos (my hopes that the wow-api woud give these infos where in vain (of course someone else woud have constructed an Addon in this case)).
 To obtain the info what quests are required can be a bit frustrating, upto Outland these infos are quite accurate, with Pandaria they get a bit confusing (on Wowhead look for the achievement and a required criterias, and look for a second page in some cases). But still there is some creativity required, so dont use these infos as complete list, but as a guide to get to the next quest hub (if you pointed to a quest-giver the also offered quests are most likely also belong to the storyline), (breadcrumb quests are missing mostly). And identify a quest-giver with the infos the Addon provides, works most certainly.
@@ -72,7 +72,7 @@ Also included is a quest logging function that writes the quests your accept and
 
 Here are my infos for some Northrend areas (if you want to do some datamining ;)
 
-[Media:QuestInfos.zip](Media:QuestInfos.zip.md)
+If you think this may be useful aks me...
 
 This is definitly not "completed" but i hope it helps or gives you an idea for your own addon.
 
@@ -108,7 +108,7 @@ The created string goes into WTF/gamecontrollerdb.txt, but the model of the cont
 
 To understand the mapping (especially the more complex json kind) the following Addon might be helpful:
 
-[Media:GamePad.zip](Media:GamePad.zip.md)
+If you think this may be useful aks me...
 
 To modify it, use the WTF/GamePadMapping_Default.json as template copy it and give it your own name e.g. WTF/GamePadMapping_Modified.json. One important part is to add to the raw mapping containing vendor+product a name so if you active the addon with
 
@@ -725,7 +725,21 @@ The option to lower the world-level looks nice at first. But be careful, surely 
 
 ## Wishes
 
-At first i did not believe, that where you wish, but after spending primogens for not much, i realized that e.g. wishing on the statue in mondstadt ensures you getting better (at least once ???) ... (i assume this is something cultural ...)
+At first i did not believe, that where you wish matters,
+e.g. wishing on the statue in mondstadt or in the tavern at the bar
+ensures you are getting better results (i expect this to work only once).
+But on the other hand there is a strong link to promotional actions,
+e.g. in 2024 while the Tga (The gaming award)
+offered the option to vote for your game, the results from wishing where crazy
+(before i did suspect that people showing pictures with multiple 4-stars where playing tricks),
+but after getting 3 4-stars with 10 wishes myself (as F2P), not long after getting a 5-star i must admit, i was wrong.
+So if you come across random quests, while farming stuff,
+this is the time to wish with better results,
+best results where with e.g. "give me two berries"
+with the variation that the immediate answer is not accepted,
+and you have to find some new ones...
+So it works best if you have some e.g. 10 wishes ready,
+as the chances are not that common.
 
 ## Story
 
@@ -755,4 +769,4 @@ The nation of hydro (some steampunk version of france)
 
 ### Natlan
 
-The nation of pyro (with dragons)
+The nation of pyro (based on afrika in some ways, inhabited by dragons)

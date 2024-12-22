@@ -27,7 +27,7 @@ make
 ./fract
 ```
 
-if you like to keep it 
+if you like to keep it
 
 ```
 # make install
@@ -35,7 +35,7 @@ if you like to keep it
 
 #### build for windows
 
-Install 
+Install
 [msys2 for gtkmm,...](https://wiki.gnome.org/Projects/gtkmm/MSWindows)
 
 Also useful infos:
@@ -49,7 +49,7 @@ In netbeans change build host to localhost (Win), Tools Mingw
 
 ## GenericGlm
 
-Basic OpenGL function lib, using Gtk::GlArea including antialiased display, text display... 
+Basic OpenGL function lib, using Gtk::GlArea including antialiased display, text display...
 
 [Media:Genericglm.zip](Media:Genericglm.zip.md) (C++ source, autotools, shoud work on any linux system dependencies: gtkmm3, glibmm2, fontconfig, freetype, epoxy, glu, glm )
 
@@ -71,10 +71,10 @@ The glm includes may require tweaking depending on version:
 #### build for Raspi's
 
 ```
-./configure --prefix=/usr --with-gles  
+./configure --prefix=/usr --with-gles
 ```
 
-The openGL implementation is switched to GL ES 3. 
+The openGL implementation is switched to GL ES 3.
 Required to work with dtoverlay=vc4-kms-v3d in /boot/config.txt
 
 Use --with-gles  also suggested for programs e.g. monglmm.
@@ -188,7 +188,7 @@ make
 
 Preperation:
 
-The preparation steps that are presented when you first start the program are required! You shoud add 
+The preparation steps that are presented when you first start the program are required! You shoud add
 
 ```
 dtoverlay=gpio-no-irq
@@ -212,17 +212,17 @@ sudo make install
 
 ![Calc](/images/Calc.png)
 
-A calculator that allows you to write your calculation 3 + 4 * 5 and press (Cntl) (Enter) to see the result. Also supports variables e.g. a = 3 + 4 * 5. 
+A calculator that allows you to write your calculation 3 + 4 * 5 and press (Cntl) (Enter) to see the result. Also supports variables e.g. a = 3 + 4 * 5.
 
-[Media:CalcSrc.zip](Media:CalcSrc.zip.md) (unmaintained, vala source, automake project, shoud work with 
+[Media:CalcSrc.zip](Media:CalcSrc.zip.md) (unmaintained, vala source, automake project, shoud work with
 ```
-./configure --prefix=/usr 
+./configure --prefix=/usr
 make
 ```
 on any *ix, dependencies: gtk+3, libgee)
 
-[Media:Calcpp.zip](Media:Calcpp.zip.md) (c++ 11 source, automake project, dependency: Gtkmm, Glibmm, libunistring ) if you want to compare vala <-> c++, vala offers the best support for gtk and glib, where c++ allows easy integration for c/c++ libs. By the way this also gives a example of some gtkmm programming (but still a bit more advanced as the documentation examples) e.g. custom components, setting binding, signal lambda funtions... 
-It cares about your locale settings, so with a e.g. german locale you write 3,14 * r ^ 2 (sorry separators are not supported). 
+[Media:Calcpp.zip](Media:Calcpp.zip.md) (c++ 11 source, automake project, dependency: Gtkmm, Glibmm, libunistring ) if you want to compare vala <-> c++, vala offers the best support for gtk and glib, where c++ allows easy integration for c/c++ libs. By the way this also gives a example of some gtkmm programming (but still a bit more advanced as the documentation examples) e.g. custom components, setting binding, signal lambda funtions...
+It cares about your locale settings, so with a e.g. german locale you write 3,14 * r ^ 2 (sorry separators are not supported).
 
 &copy; The parsing part was inspired by the shunting yard algorithm by E.W.Dijkstra
 
@@ -253,3 +253,84 @@ or integrate this in your default environment.
 ```
 pacman -S python-pip
 pip install Jinja2
+
+## gettext
+
+gettext is considered the default for internationalisation
+with automake, so it should be easy, right?
+The manual is geared towards larger projects
+where the peoples have assigned roles.
+This description can be somewhat confusing
+if you just want to get going for your small project.
+And some of the docs are not uptodate for newer
+automake versions.
+
+### run gettextize
+
+to find missing prerequisits
+<pre>
+gettextize
+</pre>
+
+this sould give you the neeed advice.
+
+The following points try to describe the steps
+with some hints.
+
+### src dir
+
+create internat.hpp with
+<pre>
+#pragma once
+
+#include <libintl.h>
+// prefere common conventions
+#include <glib/gi18n.h>
+</pre>
+and include everywhere where translation is required.
+
+in main add:
+<pre>
+  std::locale::global(std::locale(""));
+  // if you use C use: setlocale (LC_ALL, "");
+  bindtextdomain(PACKAGE, PACKAGE_LOCALE_DIR);
+  textdomain(PACKAGE);
+</pre>
+
+Annotage messages with
+_("...")
+
+### project dir
+
+#### Makefile.am
+
+add SUBDIR = ... po
+
+#### configure.ac
+
+add AM_GNU_GETTEXT([external])
+add in AC_CONFIG_FILES([ ...
+po/Makefile.in
+
+### po dir
+
+#### POTFILES.in
+
+add entries for files to be translated (and scanned for placeholders)
+
+#### LINGUAS
+
+add space-separed iso-codes for languages that should be supported
+
+#### Makevars
+
+create from .template ... adapt, remove copyright
+
+#### File managment
+
+check with locale that LC_MESSAGE is set according to
+expected translation. use msginit to create LL.po.
+
+run <pre>make update-po</pre>
+to fill .po files with keys
+
