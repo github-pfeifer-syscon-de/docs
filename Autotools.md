@@ -36,7 +36,7 @@ Better do this in antuja with add as otherwise the depdenecies are missing...
 ## src/Makefile.am
 
 ```
-logic_CXXFLAGS = -std=c++11 
+logic_CXXFLAGS = -std=c++11
 ```
 
 ## res/Makefile
@@ -73,7 +73,13 @@ The rather confusing way to internationalization:
 
 [the Gnome way](https://wiki.gnome.org/TranslationProject/LocalisationGuide)
 
-To extract text:
+To extract text ():
 
 ```
 xgettext -keyword=_ --output=- LogicDrawing.cpp
+
+## version conflict
+
+use:
+
+gettextize

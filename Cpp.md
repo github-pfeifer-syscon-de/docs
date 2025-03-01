@@ -54,11 +54,11 @@ from [Kris van Rens](https://www.youtube.com/watch?v=ajRTADPXEko)
 
 from [Ben Saks](https://www.youtube.com/watch?v=XS2JddPq7GQ&t=1683s)
 
-a lvalue is occupying storage (e.g. left side of assignment) 
+a lvalue is occupying storage (e.g. left side of assignment)
 
 a rvalue does not need storage (e.g. right side of assignment)
 
-a lvalue references use & operator 
+a lvalue references use & operator
 
 a rvalue references use && operator (used for move, here const is not useful)
 
@@ -108,7 +108,7 @@ class Cust {
   std::string last;
   int id;
  public:
-  Cust(std::string f, std::string l ="", int i = 0) 
+  Cust(std::string f, std::string l ="", int i = 0)
   : first(std::move(f))
   , last(std::move(l))
   , id(i){
@@ -126,7 +126,7 @@ class Cust {
   int id;
  public:
   template <typename S1, typename S2, typename = std::enable_if_t<!std::is_convertible_v<S1,Cust>>>
-  Cust(S1&& f, S2&&l = "", int i = 0) 
+  Cust(S1&& f, S2&&l = "", int i = 0)
   : first(std::forward<S1>(f))
   , last(std::forward<S2>(l))
   , id(i){
@@ -166,7 +166,7 @@ struct class {
 ```
 template <typename T>
 struct named_heap {
-  named_heap() 
+  named_heap()
   : capacity{16u}
   , data_min{new T[capacity]}
   , data_max{new T[capacity]}
@@ -184,11 +184,11 @@ will do something, but not the expected ...
 ```
 template <typename T>
 struct named_heap : public named_collection_base {
-   named_heap(std::string name) 
+   named_heap(std::string name)
    {
     named_collection_base::name = std::move(name);
    }
-   
+
 ```
 better call the constructor explicitly, no double work.
 
@@ -197,13 +197,13 @@ better call the constructor explicitly, no double work.
 ```
 template <typename T>
 struct named_heap : public named_collection_base {
-   named_heap(std::string name) 
+   named_heap(std::string name)
 ```
 
 will seen as converting constructor, which allow some stupid conversions.
 
 ```
-   explicit named_heap(std::string name) 
+   explicit named_heap(std::string name)
 ```
 
 ## Everything needs to be defined (just) once
@@ -219,7 +219,7 @@ placed in header will confuse the linker.
 ```
 template <typename T>
 struct named_heap {
-  named_heap() 
+  named_heap()
   : capacity{16u}
   , data_min{new T[capacity]}
   , data_max{new T[capacity]}
@@ -229,7 +229,7 @@ if the first new succeeds and the second fails the first will be freed.
 
 ## RAII means: one class one resource
 
-improve the above with C++11:  
+improve the above with C++11:
 
 ```
  , data_min{std::make_unique<T[]>(capacity)}
@@ -248,7 +248,15 @@ class named_object {
 };
 inline bool operator==(const named_object& a,const named_object& b) {
   return !(a!=b);
-} 
+}
 ```
 
 will cause indefinite recursion, or will not compile, as the instance a is declared as const so the operator!= will not be available if not declared as const.
+
+## Dbus
+
+to debug dbus issues use:
+
+```
+dbus-monitor --session
+```

@@ -37,7 +37,7 @@ modify pom.xml:
 
 Or the resulting .nbm
 
-[media:nb-darcula-1.6.nbm.zip](media:nb-darcula-1.6.nbm.zip.md)
+[Darcula AddOn](images/Darcula.zip)
 
 ## Toolbar reset
 

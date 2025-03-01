@@ -14,7 +14,7 @@ Most projects listed here have been migrated to github  see [Github-Pfeifer-Sysc
 
 Example of a mandelbrot and julia generator:
 
-[Media:Fract.zip](Media:Fract.zip.md) (C++ source, automake project, shoud work on any linux system dependencies: gtkmm3, glibmm2, gthreads )
+[Github](https://github.com/github-pfeifer-syscon-de/fract) (C++ source, automake project, shoud work on any linux system dependencies: gtkmm3, glibmm2, gthreads )
 
 #### build & run for Debian/Ubuntu
 
@@ -51,7 +51,7 @@ In netbeans change build host to localhost (Win), Tools Mingw
 
 Basic OpenGL function lib, using Gtk::GlArea including antialiased display, text display...
 
-[Media:Genericglm.zip](Media:Genericglm.zip.md) (C++ source, autotools, shoud work on any linux system dependencies: gtkmm3, glibmm2, fontconfig, freetype, epoxy, glu, glm )
+[Github](https://github.com/github-pfeifer-syscon-de/genericGlm) (C++ source, autotools, shoud work on any linux system dependencies: gtkmm3, glibmm2, fontconfig, freetype, epoxy, glu, glm )
 
 Uptodate version at [Github](https://github.com/github-pfeifer-syscon-de).
 
@@ -101,7 +101,7 @@ http://users.wfu.edu/cottrell/cross-gtk/
 
 Example of a fancy desktop clock with world time, overlay satellite images, geo.json files.
 
-[Media:Glglobe.zip](Media:Glglobe.zip.md) (C++ source, autotools project, shoud work on any linux system dependencies: gtkmm3, glibmm2, jsonglib1, libsoup3, GenericGlm)
+[Github](https://github.com/github-pfeifer-syscon-de/glglobe) (C++ source, autotools project, shoud work on any linux system dependencies: gtkmm3, glibmm2, jsonglib1, libsoup3, GenericGlm)
 
 Uptodate version at [Github](https://github.com/github-pfeifer-syscon-de).
 
@@ -130,7 +130,7 @@ Or this port with limited functions ![OSXglobe](/images/OSXglobe.zip) as XCode-p
 
 Some kind of different system monitor (load, memory, network, disk, clock) for linux, delegates most display work to graphis-card.
 
-[Media:Monglmm.zip](Media:Monglmm.zip.md) (C++ source, autotools project, shoud work on any linux system (with user accessible /proc) dependencies : gtkmm3, glibmm2, GenericGlm )(for g15 functions use ./configure --with-libg15 requires libusb)(for hardware sensors use --with-lmsensors requires lmsensors,  use  --with-gles to use glES e.g. nice for Raspi)
+[Github](https://github.com/github-pfeifer-syscon-de/monglmm) (C++ source, autotools project, shoud work on any linux system (with user accessible /proc) dependencies : gtkmm3, glibmm2, GenericGlm )(for g15 functions use ./configure --with-libg15 requires libusb)(for hardware sensors use --with-lmsensors requires lmsensors,  use  --with-gles to use glES e.g. nice for Raspi)
 
 Uptodate version at [Github](https://github.com/github-pfeifer-syscon-de).
 
@@ -173,7 +173,7 @@ Example connect a switch to Gpio 4 (Raspi 40 pin header pin 7 [Gpio pinout](http
 
 "Logic 2" is a example of a Spi communication.
 
-[Media:LogicSrc.zip](Media:LogicSrc.zip.md) (C++ source, netbeans project, shoud work on any raspi dependencies: gtkmm3, glibmm2)
+Ask it this intrests you (C++ source, netbeans project, shoud work on any raspi dependencies: gtkmm3, glibmm2)
 
 &copy; bcm2835-lib [mikem/bcm2835](http://www.airspayce.com/mikem/bcm2835/)
 
@@ -214,14 +214,14 @@ sudo make install
 
 A calculator that allows you to write your calculation 3 + 4 * 5 and press (Cntl) (Enter) to see the result. Also supports variables e.g. a = 3 + 4 * 5.
 
-[Media:CalcSrc.zip](Media:CalcSrc.zip.md) (unmaintained, vala source, automake project, shoud work with
+ (unmaintained, vala source, automake project, shoud work with
 ```
 ./configure --prefix=/usr
 make
 ```
 on any *ix, dependencies: gtk+3, libgee)
 
-[Media:Calcpp.zip](Media:Calcpp.zip.md) (c++ 11 source, automake project, dependency: Gtkmm, Glibmm, libunistring ) if you want to compare vala <-> c++, vala offers the best support for gtk and glib, where c++ allows easy integration for c/c++ libs. By the way this also gives a example of some gtkmm programming (but still a bit more advanced as the documentation examples) e.g. custom components, setting binding, signal lambda funtions...
+[Github](https://github.com/github-pfeifer-syscon-de/calcpp) (c++ 17 source, automake project, dependency: Gtkmm, Glibmm, libunistring ) if you want to compare vala <-> c++, vala offers the best support for gtk and glib, where c++ allows easy integration for c/c++ libs. By the way this also gives a example of some gtkmm programming (but still a bit more advanced as the documentation examples) e.g. custom components, setting binding, signal lambda funtions...
 It cares about your locale settings, so with a e.g. german locale you write 3,14 * r ^ 2 (sorry separators are not supported).
 
 &copy; The parsing part was inspired by the shunting yard algorithm by E.W.Dijkstra
