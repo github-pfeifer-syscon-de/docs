@@ -912,3 +912,27 @@ private:
     }
  }
 ```
+## Image scaling
+
+if scaling a image from a larger source,
+the result may look unsatifying.
+To make it look smoother use progressive
+scaling:
+
+
+```
+        // concept see https://github.com/romainguy/filthy-rich-clients/blob/master/Images/PictureScaler/src/PictureScaler.java
+        private BufferedImage scaleProgressive(BufferedImage img, int targetWidth) {
+            while (img.getWidth() > targetWidth) {
+                double factor = (double)targetWidth / (double)img.getWidth();
+                double step = factor < 0.48 ? 0.5 : factor; // if the last step gets into reach do it e.g. don't use 0.5 -> 0.96 (trades some smoothness for performance)
+                System.out.format("Scaling by %.3f width %.3f\n", step, (double)img.getWidth() * step);
+                BufferedImage scaled = new BufferedImage((int)((double)img.getWidth() * step),
+                                           (int)((double)img.getHeight() * step), img.getType());
+                AffineTransform at = AffineTransform.getScaleInstance(step, step);
+                AffineTransformOp ato = new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
+                img = ato.filter(img, scaled);
+            }
+            return img;
+        }
+```
