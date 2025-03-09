@@ -44,3 +44,13 @@ Or the resulting .nbm
 ```
 ..\AppData\Roaming\NetBeans\8.2\config
 delete the Windows2Local
+
+## Windows Msys2 integration
+
+with newer version of netbeans e.g. 25 the integration of msys2 became a bit fiddely. 
+- install Netbeans 
+- install Msys2 
+- there seems to be preference to use Mingw64, so add to path: C:\msys64\usr\bin C:\msys64\mingw64\bin
+- install the build-tools e.g. pacman -S base-devel  mingw-w64-x86_64-gcc mingw-w64-x86_64-autotools ...
+- in Netbeans open Options C/C++ Add enviroment base dir c:\msys64\mingw64 (and if needed some of the tools)
+- now the building C/C++ projects should work
