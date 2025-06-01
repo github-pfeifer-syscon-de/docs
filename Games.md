@@ -733,13 +733,13 @@ e.g. in 2024 while the Tga (The gaming award)
 offered the option to vote for your game, the results from wishing where crazy
 (before i did suspect that people showing pictures with multiple 4-stars where playing tricks),
 but after getting 3 4-stars with 10 wishes myself (as F2P), not long after getting a 5-star i must admit, i was wrong.
-So if you come across random quests, while farming stuff,
-this is the time to wish with better results,
-best results where with e.g. "give me two berries"
-with the variation that the immediate answer is not accepted,
-and you have to find some new ones...
-So it works best if you have some e.g. 10 wishes ready,
-as the chances are not that common.
+
+So if you come across random chores, do them.
+From my impression after doing some them the chances
+to get what you wan't increase.
+In my case i had 90 wishes, got Raiden with the expected pity of 50,
+And carelessly continued with the weapon
+banner, and was disappointed with the weapon for kinich....
 
 ## Story
 
@@ -749,15 +749,15 @@ The nation of anemo (resambles the german speaking part of europe, with a winery
 
 ### Liyue
 
-The nation of of geo (resembles china?)
+The nation of geo (resembles china?)
 
 ### Inazuma
 
-The nation of electro (which becomes actually clear if you see the winter illumination in big japanese cities)
+The nation of electro (which is obvious if you see the winter illumination in japanese cities), and lots of kami und tanuki stuff.
 
 ### Sumeru
 
-The nation of dendro (it's always about dreams, linked to the ancient sumerani, or india, and the desert part egypt?)
+The nation of dendro (it's always about dreams, linked to the ancient sumerani, or india, and the desert part middle east?)
 
 There is much fuss about epilepsy at every start of game, but what is about schizophrenia? who did say that? was it me? or him? or her? (if you don't get this wait til the sumeru archon epilog)
 
@@ -769,4 +769,4 @@ The nation of hydro (some steampunk version of france)
 
 ### Natlan
 
-The nation of pyro (based on afrika in some ways, inhabited by dragons)
+The nation of pyro (based on afrika/south america in some ways, inhabited by dragons)

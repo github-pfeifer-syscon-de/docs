@@ -260,3 +260,18 @@ to debug dbus issues use:
 ```
 dbus-monitor --session
 ```
+
+## Clang-tidy
+
+Use bear to build compile_commands.json:
+```
+cd src
+make clean
+bear -- make
+```
+
+Now we can check:
+```
+clang-tidy --checks=misc-include-cleaner JsonObj.cpp
+```
+
