@@ -51,3 +51,7 @@ public class Avg {
 ```
 
 mc 12/83 S.84 JPL
+
+# Explanation for my mail address
+
+[Youtube](https://www.youtube.com/watch?v=Ca6bBmrrk3o)
