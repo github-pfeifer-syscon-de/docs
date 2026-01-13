@@ -33,6 +33,18 @@ block
 
 This is a inline `source` element.
 
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+## Definition
+
+term
+: definition
+
 ## Emoji
 
 This is a emoji: :joy:
