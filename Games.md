@@ -423,6 +423,11 @@ From Legion Helya appears again, but only half as dangerous as she was.
 ### Bastion
 
 The names, clothing and mythology (e.g. ferry souls) are greek.
+Or from a more visual perspective,
+- [x] everything is about missing "anima"
+- [x] the looks of the NPC's resemble the Genshin traveler
+- [x] and the city is floating
+are they mocking Genshin?.
 
 Were the greek so much into bathing (beside archimede)?
 
@@ -480,7 +485,7 @@ They did break the macro api now my favorite "Sell crap macro" is broken, here i
 
 ## Dragon riding
 
-Thus is the fligh simulator for Wow (standard flying mounts wont work)
+Thus is the fligh simulator for Wow (standard flying mounts won't work)
 
 - Nice: to improve your abilities you have to collected glyphes, these count for the whole account (suggestion: use handy notes + dragon glyph notes to farm the gylphs)
 
@@ -676,13 +681,22 @@ Do the wrathion/ebyssian/sabelian (2500 rep.) and e.g. swallow quests  (1000 rep
 
 # Genshin impact
 
-For a change try this. Compared to Wow it is heavy on the role play side (if you don't like lengthy conversations or spend hours for a quest, this might not be for you...), and Multiplayer is an option.
+For a change try this. Compared to Wow it is heavy on the role play side (if you don't like lengthy conversations or spend hours for a quest, or month on quest-line, this might not be for you...), and Multiplayer is an option.
 
-The options for movement are by far more versatile like, running, climbing, gliding right from the start, and that is for free (if you are willing to spend much time to level up)!!!
+The options for movement are by far more versatile like, running, climbing, gliding right from the start.
+
+It is free 2 play (but not free to win).
+If you don't pay, the endgame options will be limited,
+and if you decide to pay there is no limit,
+e.g. with wow if you pay the monthly fee, your personal skill will limit your options.
+Genshin randomizes everything beside pure leveling,
+so if you wan't to optimize your artefacts plus constellations it will cost a fortune.
+Don't be fooled by impressive youtube videos, they don't tell you how much money they spend...
 
 There are many function to bring some insight into the various tasks, and currencies, which is quiet useful (otherwise new players would be completely lost).
 
-Most challenges feel harder (again compared to wow) as they come with e.g. a time limit, and boss level mobs may use more attacks. The world level increases for every 5 adventurer ranks and that keeps thinks difficult.
+Most challenges feel harder (again compared to wow) as they come with e.g. a time limit, and boss level mobs may use more attacks.
+The world level increases for every 5 adventurer ranks and that keeps things difficult.
 
 And don't by fooled with the character tryout, you get one at a high level, with their talents leveled up, a formidable weapon..., once you get this char expect much work to get this far...
 
@@ -734,39 +748,60 @@ offered the option to vote for your game, the results from wishing where crazy
 (before i did suspect that people showing pictures with multiple 4-stars where playing tricks),
 but after getting 3 4-stars with 10 wishes myself (as F2P), not long after getting a 5-star i must admit, i was wrong.
 
-So if you come across random chores, do them.
-From my impression after doing some them the chances
-to get what you wan't increase.
-In my case i had 90 wishes, got Raiden with the expected pity of 50,
-And carelessly continued with the weapon
-banner, and was disappointed with the weapon for kinich....
 
 ## Story
 
 ### Mondstadt
 
-The nation of anemo (resambles the german speaking part of europe, with a winery even if in the taverns there are big beer mugs everywhere)
+The nation of anemo
+- resembles the some German speaking part of Europe (at least for my impression)
+- with a winery, even if in the taverns there are big beer mugs everywhere)
+- the archon quest is about a nation that has cut ties with their archon and the ancient dragon (which needs to be turned from bad to good)
 
 ### Liyue
 
-The nation of geo (resembles china?)
+The nation of geo and mora 
+- resembles China
+- spoiler: the archon quest is about the archon which at first seems to be dead
+- beside the main archon there are some adepti with special skills
 
 ### Inazuma
 
-The nation of electro (which is obvious if you see the winter illumination in japanese cities), and lots of kami und tanuki stuff.
+The nation of electro
+- which is obvious if you see the winter illumination in japanese cities
+- lots of kami und tanuki stuff
+- the archon quest is about opening the nation to the world (which doesn't spare the sad parts)
 
 ### Sumeru
 
-The nation of dendro (it's always about dreams, linked to the ancient sumerani, or india, and the desert part middle east?)
+The nation of dendro 
+- linked to the ancient sumerani?
+- the jungle part resembles India
+- the desert part resembles Egypt
+- who is dreaming us? to find the answer takes more tries than you might think (did they see Inception before designing the story?)
 
 There is much fuss about epilepsy at every start of game, but what is about schizophrenia? who did say that? was it me? or him? or her? (if you don't get this wait til the sumeru archon epilog)
 
 This seems a bit off: plants and humans fight over oxygen (Nahida character quest part II)? After all Teyvat is very different from this world...
 
+If you wonder why there is so much empty desert wait until you discover the underground ...
+(bring some time for the dialogs and most puzzels feel hard to solve without some websites,
+which keep you on track while find hidden mechanics, or wide spread out pieces to collect)
+
 ### Fontaine
 
-The nation of hydro (some steampunk version of france)
+The nation of hydro 
+- some version of France with steampunk elements
+- as a homage to jacques cousteau you can dive into a nice ocean
+- the archon quest is about helping liney to turn down false accusations of him being a murderer
+- before that part of the stroy the fatui and their lead harbingers are the bad guys, but now they are our friends
 
 ### Natlan
 
-The nation of pyro (based on afrika/south america in some ways, inhabited by dragons)
+The nation of pyro (based on Afrika/South-America in some ways, inhabited by dragons, wich you can impersonate)
+- the archon quest is about fighting the Abyss (for the last part the traveler takes on a whole army ...)
+
+### Nod krai
+
+The nation of cryo (based on a mixup of Ireland, Sweden and Russia)
+- will they tie up all the loose ends of the story??? 
