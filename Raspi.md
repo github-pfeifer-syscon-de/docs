@@ -29,7 +29,7 @@ config_hdmi_boost=7
 
 Need some hardware debugging help see:
 
-[Logic analysator style program](http://wp11237257.server-he.de/wiki/index.php/Gtk3#Logic)
+[Logic analysator style program](https://github.com/github-pfeifer-syscon-de/logic)
 
 ## Play webvideo
 

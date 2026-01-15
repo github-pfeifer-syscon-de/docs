@@ -30,7 +30,7 @@
 
 [2. Dependencies](https://autotools.io/pkgconfig/dependencies.html)
 
-[Gtk3 - Pfsc-wiki](http://wp11237257.server-he.de/wiki/index.php/Gtk3#build_.26_run_for_Debian.2FUbuntu_4)
+[Gtk3 - Pfsc-wiki](Gtk3.md)
 
 [Debugging with GDB: Explicit Locations](https://sourceware.org/gdb/onlinedocs/gdb/Explicit-Locations.html#Explicit-Locations)
 

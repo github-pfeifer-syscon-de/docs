@@ -804,4 +804,5 @@ The nation of pyro (based on Afrika/South-America in some ways, inhabited by dra
 ### Nod krai
 
 The nation of cryo (based on a mixup of Ireland, Sweden and Russia)
-- will they tie up all the loose ends of the story??? 
+- will they tie up all the loose ends of the story???
+- and most of the story is presented in cinematic mode (don't dare try to exit, or the systems tells you "you may need to replay some parts...")

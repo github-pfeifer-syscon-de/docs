@@ -9,4 +9,4 @@ since the first days of the mandelbrot pctures i'm fascinated by this stuff
 
 [Nice pictures of a galaxy](http://zy0rg.deviantart.com/art/Macro-Galaxy-375414443)
 
-for my own (simple version) see [gtk3](gtk3.md)
+for my own (simple version) see [gtk3](https://github.com/github-pfeifer-syscon-de/fract)
