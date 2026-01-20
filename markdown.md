@@ -4,6 +4,8 @@
 
 https://www.freecodecamp.org/news/how-to-create-notice-blocks-in-markdown/
 
+https://markdownguide.offshoot.io/basic-syntax/
+
 https://www.markdownguide.org/cheat-sheet/
 
 

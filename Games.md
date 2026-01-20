@@ -758,6 +758,9 @@ The nation of anemo
 - with a winery, even if in the taverns there are big beer mugs everywhere)
 - the archon quest is about a nation that has cut ties with their archon and the ancient dragon (which needs to be turned from bad to good)
 
+With Nod-Krai the links to german get more obvious as the knights of favonious
+are singig German at the campfire ...
+
 ### Liyue
 
 The nation of geo and mora 
