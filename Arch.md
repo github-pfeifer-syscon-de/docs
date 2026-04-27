@@ -1399,8 +1399,44 @@ function memory()
  local -a mem
  mem=(`free -m |grep "Mem:"`)
  local total=${mem[1]}
- local free=${mem[2]}
- echo "${free} MB used of ${total} MB"
+ local used=${mem[2]}
+ local p=$(( $used * 100 / $total ))
+ echo "Total ${total} MB, used $( percent p=$p )"
+}
+# p is the value that will be displayed as bar of max total
+function percent()
+{
+    local "$@"
+    local total=20
+    local full=$(($total * $p / 100))
+    #local inner1=$(( ( $p - ( $full * 100 / $total ) )   ))  # how many procent our is below p
+    #local inner2=$(( 8 * $inner1 ))                          # *8 as we want output steps 0..7
+    #local inner3=$(( $inner2 *  $total / 100  ))             # convert percent into bar space (as last step to avoid rounding 
+    local part=$(( 8 * ( $p - ( $full * 100 / $total ) ) * $total / 100 ))
+    #echo "p $p full $full inner1 $inner1 inner2 $inner2 inner3 $inner3  part $part"
+    local i s bar
+    for (( i = 0; i < $total; i++ )) {
+	if [[ $i -lt $full ]] ; then
+	    s="\u2588"
+	else
+	    if [[ $i -eq $full ]] ; then
+		case $part in
+		   0)   s='\u2591';; 
+		   1)	s='\u258f';; 
+		   2)	s='\u258e';;
+		   3)	s='\u258d';;
+		   4)	s='\u258c';;
+		   5)	s='\u258b';;
+		   6)	s='\u258a';;
+		   7)	s='\u2589';;
+	        esac		
+	    else
+	       s="\u2591"
+	    fi
+        fi
+	bar="${bar}${s}"
+    }
+    echo -e "$bar"
 }
 function fs() 
 {
@@ -1415,15 +1451,16 @@ function fs()
  local fsType=${fst[1]}
  local fsTotal=${fst[2]}
  local fsFree=${fst[4]}
- local fsPerc=${fst[5]}
- echo "$root ${fsFree} free of ${fsTotal} used ${fsPerc} (${fsType})"
+ local fsPerc=${fst[5]%\%*}
+ #echo "$root ${fsFree} free of ${fsTotal} used $(percent p=$fsPerc) (${fsType})"
+ echo "$root (${fsType}) Total ${fsTotal} used $(percent p=$fsPerc) "
 }
 function sys() 
 {
- local sys=`systemctl list-units |wc -l`
- local sys=$(expr $sys - 1)
- local sysFail=`systemctl  --failed |wc -l`
- local sysFail=$(expr $sysFail - 1)
+ local sys=`systemctl --plain --no-pager --legend=false list-units |wc -l`
+# local sys=$(expr $sys - 1)
+ local sysFail=`systemctl --plain --no-pager --legend=false --failed |wc -l`
+# local sysFail=$(expr $sysFail - 1)
  echo "${sys} running ${sysFail} failed"
 }
 function disp()
@@ -1431,29 +1468,49 @@ function disp()
  local vga=`lspci | grep "VGA" | sed -e 's/.*: //'`
  echo "${vga}"
 }
+function av()
+{
+# local ver=`sigtool --version`
+  local ver=""
+  echo "${ver}"
+}
 function proc() 
 {
- local all=`ps -e |wc -l`
- local all=$(expr $all - 1)
- local usr=`ps |wc -l`
- local usr=$(expr $usr - 1)
- local sys=$(expr $all - $usr)
- echo "${sys} sys ${usr} user"
+  local u p sys=0 user=0
+  local -a f
+  while read p ; do
+      #echo "p $p "
+      f=($p)
+      #echo "f ${f[@]}"
+      u=${f[0]}
+      #echo "u $u"
+      if [[ ${u} == 'root' ]] ; then
+	  ((sys += 1))
+      fi
+      if [[ ${u} == ${USER} ]] ; then
+	  ((user += 1))
+      fi
+  done <<EOF
+`ps axu`
+EOF
+  echo "${sys} sys ${user} user"
 }
 function pack() 
 {
- local total=`pacman -Q |wc -l`
+  local ver=""
+  echo "core "`date -I -r /var/lib/pacman/sync/core.db`" extra "`date -I -r /var/lib/pacman/sync/extra.db`
+# local total=`pacman -Q |wc -l`
 # nice but takes too long
 #  local exp=`pacman -Qe |wc -l`
- echo "$total total"
+# echo "$total total"
 }
 function cpu() 
 {
- cat /proc/cpuinfo | grep "model name" |cut -d ":" -f2
+ cat /proc/cpuinfo | grep "model name" |tail -n1 |cut -d ":" -f2
 }
 function net()
 {
-	for intf in $( ls -d /sys/class/net/en* ) ; do
+	for intf in $( ls -d /sys/class/net/e* ) ; do
 		local speed=`cat $intf/speed`
 		local duplex=`cat $intf/duplex`
 		local updown=`cat $intf/operstate`
@@ -1468,33 +1525,43 @@ function net()
 #		inf=`ip -j -o -4 addr show dev $intf`
 #		for i in {1..10} ; do
 #			infn=`cut -d"," -f$i`
-#			if [[ $infn == "local"* ]] ; then
+#			if  $infn == "local"*  ; then
 #				echo "$intf $infn" 
 #			fi
 #		done
 	done
 }
-function ansi_color()
+# ansi color
+#  c= color e.g. green
+#  b= bright 0/1
+function ac()
 {
 	local "$@"
-	case $color in 
-		'black')	echo '0';; 
-		'red')		echo '1';;
-		'green')	echo '2';;
-		'yellow')	echo '3';;
-		'blue')		echo '4';;
-		'magenta')	echo '5';;
-		'cyan')		echo '6';;
-		'white')	echo '7';;
+	local s
+	case $c in 
+		'black')	s='0';; 
+		'red')		s='1';;
+		'green')	s='2';;
+		'yellow')	s='3';;
+		'blue')		s='4';;
+		'magenta')	s='5';;
+		'cyan')		s='6';;
+		'white')	s='7';;
 	esac
+	echo -e "\033[$b;3${s}m"
+}
+function bar()
+{
+   local "$@"
+   local bar="\u2588\u2588\u2588"
+   echo -e "$( ac c=black b=$b )${bar}$( ac c=red b=$b )${bar}$( ac c=green b=$b )${bar}$( ac c=yellow b=$b )${bar}$( ac c=blue b=$b )${bar}$( ac c=magenta b=$b )${bar}$( ac c=cyan b=$b )${bar}$( ac c=white b=$b )${bar}"
 }
 function info()
 {
 local "$@"
-local c=$( ansi_color color=$color)
-local c1="\033[1;3${c}m"
-local c2="\033[0;3${c}m"
-norm="\033[0m"
+local c1=$( ac c=${color} b=1)
+local c2=$( ac c=${color} b=0)
+local norm="\033[0m"
 echo -e "${c1}               +                "
 echo -e "${c1}               #                ${c1}OS  :${norm} `uname -s -m`"
 echo -e "${c1}              ###               ${c1}Vers:${norm} `uname -r`"
@@ -1506,16 +1573,22 @@ echo -e "${c1}          +##########           ${c1}Pack:${norm} $( pack )"
 echo -e "${c1}         ######${c2}#####${c1}##;         ${c1}Proc:${norm} $( proc )"       
 echo -e "${c1}        ###${c2}############${c1}+        ${c1}Net :${norm} $( net )"
 echo -e "${c1}       #${c2}######   #######        ${c1}Sys :${norm} $( sys )"
-echo -e "${c2}     .######;     ;###;\`\".      ${c1}Fs  :${norm} $( fs root='/' )"
-echo -e "${c2}    .#######;     ;#####.       "
-echo -e "${c2}    #########.   .########\`    "
-echo -e "${c2}   ######'           '######    "
-echo -e "${c2}  ;####                 ####;   "
-echo -e "${c2}  ##'                     '##   "
-echo -e "${c2} #'                         \`#  "
+echo -e "${c2}     .######;     ;###;\`\".      ${c1}Fs  :${norm} $( fs root='/home' )"
+echo -e "${c2}    .#######;     ;#####.       ${c1}Av  :${norm} $( av )"
+echo -e "${c2}    #########.   .########\`     ${c1}Norm: $( bar b=0)${norm}"
+echo -e "${c2}   ######'           '######    ${c1}Brih: $( bar b=1)${norm}"
+echo -e "${c2}  ;####                 ####;   ${norm}"
+echo -e "${c2}  ##'                     '##   ${norm}"
+echo -e "${c2} #'                         \`# ${norm}"
 echo -e ${norm}
 }
-info color="yellow"
+if [[ $UID -eq 0 ]] ; then
+    color="red"
+else
+    color="blue"
+fi
+info color=$color
+unset $color
 ```
 
 ## Hbci
