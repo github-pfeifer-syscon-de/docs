@@ -1403,19 +1403,55 @@ function memory()
  local p=$(( $used * 100 / $total ))
  echo "Total ${total} MB, used $( percent p=$p )"
 }
-# p is the value that will be displayed as bar of max total
+
+# s a symbol e.g. mem 
+function symbol()
+{
+    local "$@"
+    if [[ ${COLORTERM} == "truecolor" ]] ; then    # use replacement only with X
+	case $s in
+	    'Mem')   s='\u2BBA  ';;   #\u26A1 flash
+	    'Cpu')   s='\u2699  ';;   # gear
+	    'Disk')  s='\u26c1   ';;  # plates
+            'Disp')  s='\u23ff   ';;  # eye
+	    'Host')  s='\u2328   ';;  # keyboard 
+	    'OS')    s='\u23FB ';;    # symbol on
+	    'Vers')  s='\u23F1   ';;  # clock
+	    'Net')   s='\u2388  ';;   # wheel
+	    'full')  s='\u21c4';;     # two arrows
+	    'half')  s='\u21e0';;     # single arrow 
+	    'Sys')   s='\u2605  ';;   #\u2b50 star
+	    'Root')  s='\u265A   ';;  # chess king
+	    'Usr')   s='\u265F  ';;   # chess pawn
+	    'Pack')  s='\u267B   ';;  #\u2b1a dotted square  recycle
+	    'Norm')  s='\u26AA  ';;   # empty circle
+	    'Brig')  s='\u26AB  ';;   # filled circle
+	    'Av')    s='\u2695 ';;    #\2620 asculap
+	    'up')    s='\u2b06';;     # network display up
+	    'down')  s='\u2b07';;     # or down
+	    'cloud') s='\u2602';;     # for sys-service display
+	    'sun')   s='\u2600';;     # or	    
+	esac
+    fi
+    echo -e "${s}"
+}
+
+# p is the percent value 0..100 that will be displayed as bar
+# t are the character places to use (if undefined use 20)
 function percent()
 {
     local "$@"
-    local total=20
-    local full=$(($total * $p / 100))
-    #local inner1=$(( ( $p - ( $full * 100 / $total ) )   ))  # how many procent our is below p
-    #local inner2=$(( 8 * $inner1 ))                          # *8 as we want output steps 0..7
-    #local inner3=$(( $inner2 *  $total / 100  ))             # convert percent into bar space (as last step to avoid rounding 
-    local part=$(( 8 * ( $p - ( $full * 100 / $total ) ) * $total / 100 ))
+    if [ -z "$t" ] ; then
+	local t=20
+    fi    
+    local full=$(($t * $p / 100))
+    #local inner1=$(( ( $p - ( $full * 100 / $t ) )   ))  # how many procent our full is below p
+    #local inner2=$(( 8 * $inner1 ))                      # *8 as we want output steps 0..7
+    #local inner3=$(( $inner2 *  $t / 100  ))             # convert percent into bar space (as last step to avoid rounding 
+    local part=$(( 8 * ( $p - ( $full * 100 / $t ) ) * $t / 100 ))
     #echo "p $p full $full inner1 $inner1 inner2 $inner2 inner3 $inner3  part $part"
     local i s bar
-    for (( i = 0; i < $total; i++ )) {
+    for (( i = 0; i < $t; i++ )) {
 	if [[ $i -lt $full ]] ; then
 	    s="\u2588"
 	else
@@ -1441,11 +1477,6 @@ function percent()
 function fs() 
 {
  local "$@"
- #local fst=`df -TPh $1 | tail -n1 | sed -e 's/ \+/_/g' `
- #local fsType=`echo $fst | cut -d "_" -f2`
- #local fsTotal=`echo $fst | cut -d "_" -f3`
- #local fsFree=`echo $fst | cut -d "_" -f5`
- #local fsPerc=`echo $fst | cut -d "_" -f6`
  local -a fst
  fst=(`df -TPh $root | tail -n1`)
  local fsType=${fst[1]}
@@ -1457,15 +1488,18 @@ function fs()
 }
 function sys() 
 {
- local sys=`systemctl --plain --no-pager --legend=false list-units |wc -l`
-# local sys=$(expr $sys - 1)
- local sysFail=`systemctl --plain --no-pager --legend=false --failed |wc -l`
-# local sysFail=$(expr $sysFail - 1)
- echo "${sys} running ${sysFail} failed"
+    # add --type=service will limit to service
+ local sys=$(systemctl --plain --no-pager --legend=false list-units |wc -l)
+ local sysFail=$(systemctl --plain --no-pager --legend=false --failed |wc -l)
+ local msg="${sys} $(symbol s='sun')"
+ if [[ ${sysFail} -gt 0 ]] ; then
+     msg="${msg} ${sysFail} $(symbol s='cloud')"
+ fi    
+ echo ${msg}
 }
 function disp()
 {
- local vga=`lspci | grep "VGA" | sed -e 's/.*: //'`
+ local vga=$(lspci | grep "VGA" | sed -e 's/.*: //')
  echo "${vga}"
 }
 function av()
@@ -1474,26 +1508,38 @@ function av()
   local ver=""
   echo "${ver}"
 }
+# param us='y' root otherwise selects compare op 
 function proc() 
 {
-  local u p sys=0 user=0
-  local -a f
+  local "$@"
+  local u p sys=0 syscpu=0 sysmem=0 user=0 usermem=0 usercpu=0 pcpu pmem
   while read p ; do
-      #echo "p $p "
-      f=($p)
+      local -a f=($p)
       #echo "f ${f[@]}"
       u=${f[0]}
       #echo "u $u"
-      if [[ ${u} == 'root' ]] ; then
-	  ((sys += 1))
+      if [[ ${u} != 'USER' ]] ; then
+	  pcpu=${f[2]}
+	  pcpu=${pcpu%.*}
+	  pmem=${f[3]}
+	  pmem=${pmem%.*}
+	  #echo "pcpu ${pcpu} pmem ${pmem}"
+          if [[ ${u} == ${USER} ]] ; then       
+             ((user += 1))
+	     ((usercpu += ${pcpu}))
+	     ((usermem += ${pmem}))	     
+          else             # it might not be accurate to count any other as sys... (but it is just a script)
+             ((sys += 1))
+             ((syscpu += ${pcpu}))
+             ((sysmem += ${pmem}))
+          fi
       fi
-      if [[ ${u} == ${USER} ]] ; then
-	  ((user += 1))
-      fi
-  done <<EOF
-`ps axu`
-EOF
-  echo "${sys} sys ${user} user"
+  done <<< $(ps axu)
+  if [[ ${us} == 'y' ]] then
+     printf "%5d $(symbol s='Cpu') $(percent p=${usercpu} t=10) $(symbol s='Mem') $(percent p=${usermem} t=10)" ${user}
+  else
+     printf "%5d $(symbol s='Cpu') $(percent p=${syscpu} t=10) $(symbol s='Mem') $(percent p=${sysmem} t=10)" ${sys}
+  fi
 }
 function pack() 
 {
@@ -1515,13 +1561,18 @@ function net()
 		local duplex=`cat $intf/duplex`
 		local updown=`cat $intf/operstate`
 	 	if [[ ${speed} -ge 1000 ]] ; then
-			local speed="$(expr $speed / 1000)G"
+		    local speed="$(expr $speed / 1000)G"
 		else 
-			local speed="${speed}M"
+		    local speed="${speed}M"
 		fi
 		local inf=`echo ${intf} | cut -d"/" -f5`
-		local ip=`ip addr show ${inf} | grep "inet " |cut -d" " -f6 `		
-		echo "${inf} ${speed} ${duplex} ${updown} ${ip}"
+		local ip=`ip addr show ${inf} | grep "inet " |cut -d" " -f6 `
+		local upsym=${updown}
+		if [[ ${upsym} == 'up' || ${upsym} == 'down' ]] ; then		    
+                    upsym=$(symbol s=${upsym})		    # these states we have a symbol for, so replace
+		fi
+		local dupsym=$(symbol s=${duplex})
+		echo "${inf} ${speed} ${dupsym} ${upsym} ${ip}"
 #		inf=`ip -j -o -4 addr show dev $intf`
 #		for i in {1..10} ; do
 #			infn=`cut -d"," -f$i`
@@ -1550,34 +1601,35 @@ function ac()
 	esac
 	echo -e "\033[$b;3${s}m"
 }
+# display color bars like a ancient tv test picture :)
 function bar()
 {
    local "$@"
    local bar="\u2588\u2588\u2588"
-   echo -e "$( ac c=black b=$b )${bar}$( ac c=red b=$b )${bar}$( ac c=green b=$b )${bar}$( ac c=yellow b=$b )${bar}$( ac c=blue b=$b )${bar}$( ac c=magenta b=$b )${bar}$( ac c=cyan b=$b )${bar}$( ac c=white b=$b )${bar}"
+   echo -e "$(ac c=black b=$b)${bar}$(ac c=red b=$b)${bar}$(ac c=green b=$b)${bar}$(ac c=yellow b=$b)${bar}$(ac c=blue b=$b)${bar}$(ac c=magenta b=$b)${bar}$(ac c=cyan b=$b)${bar}$(ac c=white b=$b)${bar}"
 }
 function info()
 {
 local "$@"
-local c1=$( ac c=${color} b=1)
-local c2=$( ac c=${color} b=0)
+local c1=$(ac c=${color} b=1)
+local c2=$(ac c=${color} b=0)
 local norm="\033[0m"
 echo -e "${c1}               +                "
-echo -e "${c1}               #                ${c1}OS  :${norm} `uname -s -m`"
-echo -e "${c1}              ###               ${c1}Vers:${norm} `uname -r`"
-echo -e "${c1}             #####              ${c1}Host:${norm} `uname -n`"
-echo -e "${c1}             ######             ${c1}Mem :${norm} $( memory )"
-echo -e "${c1}            ; #####;            ${c1}Cpu :${norm}$( cpu )"
-echo -e "${c1}           +##.#####            ${c1}Disp:${norm} $( disp )"
-echo -e "${c1}          +##########           ${c1}Pack:${norm} $( pack )"
-echo -e "${c1}         ######${c2}#####${c1}##;         ${c1}Proc:${norm} $( proc )"       
-echo -e "${c1}        ###${c2}############${c1}+        ${c1}Net :${norm} $( net )"
-echo -e "${c1}       #${c2}######   #######        ${c1}Sys :${norm} $( sys )"
-echo -e "${c2}     .######;     ;###;\`\".      ${c1}Fs  :${norm} $( fs root='/home' )"
-echo -e "${c2}    .#######;     ;#####.       ${c1}Av  :${norm} $( av )"
-echo -e "${c2}    #########.   .########\`     ${c1}Norm: $( bar b=0)${norm}"
-echo -e "${c2}   ######'           '######    ${c1}Brih: $( bar b=1)${norm}"
-echo -e "${c2}  ;####                 ####;   ${norm}"
+echo -e "${c1}               #                ${c1}$(symbol s='OS')  :${norm} `uname -s -m`"
+echo -e "${c1}              ###               ${c1}$(symbol s='Vers'):${norm} `uname -r`"
+echo -e "${c1}             #####              ${c1}$(symbol s='Host'):${norm} `uname -n`"
+echo -e "${c1}             ######             ${c1}$(symbol s='Mem') :${norm} $(memory)"
+echo -e "${c1}            ; #####;            ${c1}$(symbol s='Cpu') :${norm}$(cpu)"
+echo -e "${c1}           +##.#####            ${c1}$(symbol s='Disp'):${norm} $(disp)"
+echo -e "${c1}          +##########           ${c1}$(symbol s='Pack'):${norm} $(pack)"
+echo -e "${c1}         ######${c2}#####${c1}##;         ${c1}$(symbol s='Root'):${norm} $(proc us='n')"       
+echo -e "${c1}        ###${c2}############${c1}+        ${c1}$(symbol s='Usr') :${norm} $(proc us='y')"
+echo -e "${c1}       #${c2}######   #######        ${c1}$(symbol s='Net') :${norm} $(net)"
+echo -e "${c2}     .######;     ;###;\`\".      ${c1}$(symbol s='Sys') :${norm} $(sys)"
+echo -e "${c2}    .#######;     ;#####.       ${c1}$(symbol s='Disk'):${norm} $(fs root='/home' )"
+echo -e "${c2}    #########.   .########\`     ${c1}$(symbol s='Av')  :${norm} $(av)"
+echo -e "${c2}   ######'           '######    ${c1}$(symbol s='Norm'):${norm} $(bar b=0)"
+echo -e "${c2}  ;####                 ####;   ${c1}$(symbol s='Brig'):${norm} $(bar b=1)"
 echo -e "${c2}  ##'                     '##   ${norm}"
 echo -e "${c2} #'                         \`# ${norm}"
 echo -e ${norm}
@@ -1589,6 +1641,9 @@ else
 fi
 info color=$color
 unset $color
+#for (( i = 0; i < 100; i++ )) {
+#    echo -e "$( percent p=$i)"
+#}
 ```
 
 ## Hbci
